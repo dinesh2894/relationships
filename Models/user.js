@@ -11,6 +11,7 @@ const userSchema = new Schema({
     username: String,
     addresses: [
         {
+            _id: false,
             city: String,
             location: String
         }
@@ -24,12 +25,13 @@ const addUsers = async () => {
         username: "sherlockhomes",
         addresses: [
             {
+
                 location: "221B Baker Street",
                 city: "London"
             }]
     });
 
-    user1.addresses.push({location: "932 WallStreet",city:"London"});
+    user1.addresses.push({location: "932 WallStreet", city: "London"});
 
     let result = await user1.save();
     console.log(result);
